@@ -2,7 +2,7 @@
 
   <div class="row">
     <div class="input-field col s12">
-      <%= f.text_field :name, value: @project.name, id: "name", class: "validate" %>
+      <%= f.text_field :name, value: @project.name, id: "name", class: "validate #{@project.errors.blank? ? '' : 'invalid'}" %>
       <label for="name">Name</label>
     </div>
   </div>
