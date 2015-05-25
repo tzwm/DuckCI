@@ -1,4 +1,6 @@
 class BuildsController < ApplicationController
+  before_action :authenticate_user!
+  
   def show
     load_build
     load_project
