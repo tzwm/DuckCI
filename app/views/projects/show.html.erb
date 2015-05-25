@@ -28,7 +28,7 @@
         </li>
         <% @builds.each do |b| %>
           <%= link_to build_path(b), class: "collection-item black-text #{state_color b}" do %>
-            <%= b.commit[0..7] %>
+            <%= b.pretty_commit %>
           <% end %>
         <% end %>
       </ul>

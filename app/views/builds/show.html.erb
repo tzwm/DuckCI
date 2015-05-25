@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="card-panel">
+    <div class="row">
+      <div class="col s12">
+        <h3>
+          <span><%= link_to @project.name, project_path(@project), class: "" %></span>/<span><%= link_to @build.pretty_commit, @build.commit_url, class: state_color(@build, true), target: "_blank" %></span>
+        </h3>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col s12">
+        <%= link_to "Rebuild", build_path(@build), method: :put, class: "waves-effect waves-light btn lime darken-3" %>
+        <%= link_to "Delete", build_path(@build), method: :delete, class: "waves-effect waves-light btn red" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="card-panel black">
+
+      <div class="row">
+        <div class="col s12">
+          <p class="flow-text white-text">
+            <%= pretty_output(@build.stdout).html_safe %>
+          </p>
+        </div>
+      </div>
+  </div>
+</div>
