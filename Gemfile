@@ -36,6 +36,7 @@ gem 'materialize-sass'
 
 gem 'devise', '~> 3.4'
 
+gem 'rye', '~> 0.9'
 
 group :development, :test do
   gem 'thin'
