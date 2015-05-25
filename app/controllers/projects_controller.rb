@@ -1,13 +1,61 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all
+    load_projects
   end
 
-  def create
-    
+  def show
+    load_project
   end
 
   def new
-    @project = Project.new    
+    build_project
+  end
+
+  def create
+    build_project
+    save_project or render :new
+  end
+
+  def edit
+   load_project
+   build_project
+  end
+
+  def update
+    load_project
+    build_project
+    save_project or render :edit
+  end
+
+  def destroy
+    load_project
+    @project.destroy
+    redirect_to projects_path
+  end
+
+  private
+
+  def load_projects
+    @projects ||= Project.all
+  end
+
+  def load_project
+    @project ||= Project.find(params[:id])
+  end
+
+  def build_project
+    @project ||= Project.new
+    @project.attributes = project_params
+  end
+
+  def save_project
+    if @project.save
+      redirect_to @project
+    end
+  end
+
+  def project_params
+    project_params = params[:project]
+    project_params ? project_params.permit(:name, :uri, :branch, :script) : {}
   end
 end
