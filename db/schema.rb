@@ -14,12 +14,14 @@
 ActiveRecord::Schema.define(version: 20150525080917) do
 
   create_table "builds", force: :cascade do |t|
-    t.integer  "project_id", limit: 4,     null: false
-    t.string   "commit",     limit: 255,   null: false
-    t.string   "state",      limit: 255,   null: false
-    t.text     "output",     limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.integer  "project_id",  limit: 4,     null: false
+    t.string   "commit",      limit: 255
+    t.string   "state",       limit: 255
+    t.integer  "exit_status", limit: 4
+    t.text     "stderr",      limit: 65535
+    t.text     "stdout",      limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "projects", force: :cascade do |t|

@@ -2,15 +2,19 @@ class ProjectBuildJob < ActiveJob::Base
   queue_as :default
 
   def perform build, commit=nil
+    init_build build
     init_executer
     init_dir
     init_project build.project, commit
-    ret = exec_script build.project.script
-    build.output = ret.stdout
-    build.save
+    save_ret build, exec_script(build.project.script)
   end
 
   private
+
+  def init_build build
+    build.state = Build::STATE[:building]
+    build.save
+  end
 
   def init_executer
     @rbox = Rye::Box.new('localhost')
@@ -35,5 +39,13 @@ class ProjectBuildJob < ActiveJob::Base
 
   def exec_script script
     @rbox.sh(:c, script)
+  end
+
+  def save_ret build, ret
+    build.exit_status = ret.exit_status
+    build.stderr = ret.stderr.join("\n" * 4)
+    build.stdout = ret.stdout.join("\n" * 4)
+    build.state = Build::STATE[:end]
+    build.save
   end
 end

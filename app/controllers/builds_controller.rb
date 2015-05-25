@@ -28,7 +28,7 @@ class BuildsController < ApplicationController
     @build = Build.new
     @build.project_id = @project.id
     @build.commit = "test"
-    @build.state = "wait"
+    @build.state = Build::STATE[:wait]
   end
 
   def save_build
