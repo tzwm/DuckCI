@@ -5,6 +5,7 @@ class ProjectsController < ApplicationController
 
   def show
     load_project
+    load_builds
   end
 
   def new
@@ -41,6 +42,10 @@ class ProjectsController < ApplicationController
 
   def load_project
     @project ||= Project.find(params[:id])
+  end
+
+  def load_builds
+    @builds = @project.builds
   end
 
   def build_project
