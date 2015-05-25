@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150525185341) do
+ActiveRecord::Schema.define(version: 20150525201708) do
 
   create_table "builds", force: :cascade do |t|
     t.integer  "project_id",  limit: 4,     null: false
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20150525185341) do
     t.text     "stdout",      limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.string   "author",      limit: 255
   end
 
   create_table "projects", force: :cascade do |t|

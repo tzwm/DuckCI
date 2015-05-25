@@ -47,7 +47,7 @@ class ProjectsController < ApplicationController
   end
 
   def load_builds
-    @builds = @project.builds
+    @builds = @project.builds.order(updated_at: :desc)
   end
 
   def build_project

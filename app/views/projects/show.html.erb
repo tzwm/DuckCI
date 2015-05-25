@@ -27,9 +27,10 @@
       <ul class="collapsible popout" data-collapsible="accordion">
         <% @builds.each do |b| %>
           <li>
-            <div class="collapsible-header black-text <%= state_color b %>">
-              <%= link_to build_path(b) do %>
+            <div class="collapsible-header <%= state_color b %>">
+              <%= link_to build_path(b), class: "black-text" do %>
                 <%= b.pretty_commit %>
+                by <%= b.author %>
               <% end %>
               <div class="right">
                 <%= link_to "Rebuild", build_path(b), method: :put, class: "waves-effect waves-light btn light-green darken-2" %>

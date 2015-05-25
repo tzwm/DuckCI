@@ -41,13 +41,17 @@ class ProjectBuildJob < ActiveJob::Base
     @rbox.sh(:c, script)
   end
 
-  def get_commit_hash
-    ret = @rbox.git("log", :n, 1, '--pretty=format:"%H"')
-    ret.stdout[0].gsub(/"/, '')
+  def commit_hash
+    @rbox.git("log", :n, 1, '--pretty=format:"%H"').stdout[0].gsub(/"/, '')
+  end
+
+  def commit_author
+    @rbox.git("log", :n, 1, '--pretty=format:"%an"').stdout[0].gsub(/"/, '')
   end
 
   def save_ret build, ret
-    build.commit = get_commit_hash
+    build.commit = commit_hash
+    build.author = commit_author
     build.exit_status = ret.exit_status
     build.stderr = ret.stderr.join("\n" * 4)
     build.stdout = ret.stdout.join("\n" * 4)
