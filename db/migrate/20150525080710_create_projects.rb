@@ -4,6 +4,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :name, null: false
       t.string :uri, null: false
       t.string :branch, null: false, default: 'master'
+      t.text :script
 
       t.timestamps null: false
     end

@@ -23,11 +23,12 @@ ActiveRecord::Schema.define(version: 20150525080917) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string   "name",       limit: 255,                    null: false
-    t.string   "uri",        limit: 255,                    null: false
-    t.string   "branch",     limit: 255, default: "master", null: false
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.string   "name",       limit: 255,                      null: false
+    t.string   "uri",        limit: 255,                      null: false
+    t.string   "branch",     limit: 255,   default: "master", null: false
+    t.text     "script",     limit: 65535
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
   end
 
 end
