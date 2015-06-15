@@ -63,6 +63,6 @@ class ProjectsController < ApplicationController
 
   def project_params
     project_params = params[:project]
-    project_params ? project_params.permit(:name, :uri, :branch, :script) : {}
+    project_params ? project_params.permit(:name, :uri, :docker_uri, :branch, :script) : {}
   end
 end

@@ -16,6 +16,13 @@
 
   <div class="row">
     <div class="input-field col s12">
+      <%= f.text_field :docker_uri, value: @project.docker_uri, id: "docker_uri", class: "validate" %> 
+      <label for="docker_uri">Docker URI</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
       <%= f.text_field :branch, value: @project.branch, id: "branch", class: "validate" %> 
       <label for="branch">Branch to track</label>
     </div>
