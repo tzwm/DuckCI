@@ -1,5 +1,7 @@
 class Build < ActiveRecord::Base
   belongs_to :project
+  belongs_to :machines
+  has_many :audit_logs
 
   STATE = {
     wait: "wait",

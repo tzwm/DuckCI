@@ -45,6 +45,7 @@ GEM
     builder (3.2.2)
     byebug (4.0.5)
       columnize (= 0.9.0)
+    choice (0.2.0)
     coderay (1.1.0)
     columnize (0.9.0)
     daemons (1.2.2)
@@ -119,6 +120,11 @@ GEM
       activesupport (>= 4.2.0.beta, < 5.0)
       nokogiri (~> 1.6.0)
       rails-deprecated_sanitizer (>= 1.0.1)
+    rails-erd (1.4.0)
+      activerecord (>= 3.2)
+      activesupport (>= 3.2)
+      choice (~> 0.2.0)
+      ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
     railties (4.2.1)
@@ -130,6 +136,7 @@ GEM
     rdoc (4.2.0)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
+    ruby-graphviz (1.2.2)
     rye (0.9.13)
       annoy
       docile (>= 1.0.1)
@@ -192,6 +199,7 @@ DEPENDENCIES
   nprogress-rails
   pry-byebug
   rails (= 4.2.1)
+  rails-erd
   rye (~> 0.9)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
