@@ -17,8 +17,8 @@ class ProjectBuildJob < ActiveJob::Base
   end
 
   def init_executer
-    @rbox = Rye::Box.new('localhost')
-    @rbox.cd "/var/tmp/"
+    @rbox = Rye::Box.new('localhost', :user => 'tzwm', :password=> 'wang1jun2zhe3')
+    @rbox.cd "/home/tzwm/demo/"
   end
 
   def init_dir
