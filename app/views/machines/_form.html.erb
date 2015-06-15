@@ -1,0 +1,32 @@
+<%= form_for @machine do |f| %>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.text_field :name, value: @machine.name, id: "name", class: "validate #{@machine.errors.blank? ? '' : 'invalid'}" %>
+      <label for="name">Name</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.text_field :url, value: @machine.url, id: "url", class: "validate" %> 
+      <label for="url">Node URI</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="input-field col s12">
+      <%= f.text_field :login_user, value: @machine.login_user, id: "login_user", class: "validate" %> 
+      <label for="login_user">Login User</label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col s12">
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="mdi-content-send right"></i>
+      </button>
+    </div>
+  </div>
+
+<% end %>
