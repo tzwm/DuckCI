@@ -1,5 +1,6 @@
 class BuildsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :except => :create
+  protect_from_forgery :except => :create
   
   def show
     load_build
